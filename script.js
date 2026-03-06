@@ -115,7 +115,7 @@ Love you always,
 
     html += `
       <img 
-        src="assets/heart.png" 
+        src="assets/heart.PNG" 
         class="life-heart ${off ? "life-off" : ""}" 
         alt="heart"
       />
