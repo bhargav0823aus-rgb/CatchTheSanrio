@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Happy Birthday Alisha</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- SCREEN 1: Start -->
+    <section id="screen-start" class="screen is-active" aria-label="Start screen">
+      <div class="screen-bg start-bg" aria-hidden="true"></div>
+      <button id="start-btn" class="pill-btn start-btn" type="button">TAP TO START</button>
+    </section>
+
+    <!-- SCREEN 2: Game -->
+    <section id="screen-game" class="screen" aria-label="Game screen">
+      <div class="hud">
+        <div class="hud-score" aria-label="Score">
+          SCORE : <span id="score">0</span>
+        </div>
+        <div id="lives" class="hud-lives" aria-label="Lives"></div>
+      </div>
+
+      <div id="game-area" class="game-area" aria-label="Play area">
+        <img id="cloud" class="cloud" src="assets/cloud.png" alt="Cloud" draggable="false" />
+        <div id="falling-layer" class="falling-layer" aria-hidden="true"></div>
+        <img id="basket" class="basket" src="assets/basket.png" alt="Basket" draggable="false" />
+      </div>
+
+      <div id="overlay-gameover" class="overlay overlay-hidden" role="dialog" aria-modal="true" aria-label="Game over">
+        <div class="overlay-card">
+          <div class="overlay-title">Game Over</div>
+          <div class="overlay-actions">
+            <button id="retry-btn" class="pill-btn" type="button">Retry</button>
+            <button id="back-start-btn" class="pill-btn" type="button">Back to Start</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: Win -->
+    <section id="screen-win" class="screen" aria-label="Win screen">
+      <div class="screen-bg win-bg" aria-hidden="true"></div>
+      <div id="confetti" class="confetti" aria-hidden="true"></div>
+
+      <div class="win-content">
+        <div class="win-photo-frame" aria-label="Photo frame">
+          <!-- REPLACE THIS WITH ALISHA PHOTO -->
+          <img id="win-photo" class="win-photo" src="Alisha.jpeg" alt="Photo" draggable="false" />
+          <div id="win-photo-fallback" class="win-photo-fallback" aria-hidden="true"></div>
+        </div>
+
+        <div class="win-text">
+          <div class="win-line-1">HAPPY BIRTHDAY</div>
+          <div class="win-line-2" id="girlfriend-name">ALISHA :)</div>
+        </div>
+
+        <button id="secret-btn" class="pill-btn secret-btn" type="button">Open Secret Message</button>
+      </div>
+
+      <div id="modal" class="overlay overlay-hidden" role="dialog" aria-modal="true" aria-label="Secret message">
+        <div class="modal-card">
+          <button id="modal-close" class="modal-close" type="button" aria-label="Close">×</button>
+          <div class="modal-title">A little letter</div>
+          <textarea id="secret-message" class="modal-textarea" spellcheck="false"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,318 @@
+/* Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #000;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Screens + transitions */
+.screen {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+
+.screen.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.screen-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.start-bg {
+  background-image: url("assets/start page background.JPG");
+}
+
+.win-bg {
+  background-image: url("assets/start page background.JPG");
+}
+
+/* Buttons */
+.pill-btn {
+  appearance: none;
+  border: 4px solid #000;
+  border-radius: 14px;
+  background: #fff;
+  color: #000;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 14px 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.pill-btn:active {
+  transform: scale(0.99);
+}
+
+.start-btn {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(18px, 4.4vw, 26px);
+  border-radius: 18px;
+  padding: 16px 44px;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.22);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .start-btn {
+    animation: startPulse 1.6s ease-in-out infinite;
+  }
+}
+
+@keyframes startPulse {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+  100% { transform: translateY(0); }
+}
+
+/* Game */
+#screen-game {
+  background: #bcc6ff; /* pastel periwinkle */
+  align-items: stretch;
+  justify-items: stretch;
+}
+
+.hud {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hud-score {
+  font-size: clamp(18px, 4.2vw, 28px);
+  font-weight: 900;
+}
+
+.hud-lives {
+  font-size: clamp(22px, 5vw, 32px);
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #d00;
+}
+
+.hud-lives .life-off {
+  color: rgba(0, 0, 0, 0.15);
+}
+
+.game-area {
+  position: absolute;
+  inset: 0;
+  touch-action: none;
+}
+
+.cloud {
+  position: absolute;
+  top: clamp(52px, 10vh, 90px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92vw, 620px);
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.basket {
+  position: absolute;
+  bottom: clamp(20px, 6vh, 70px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(42vw, 220px);
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.falling-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.falling-item {
+  position: absolute;
+  width: min(20vw, 110px);
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Overlays */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 20;
+}
+
+.overlay-hidden {
+  display: none;
+}
+
+.overlay-card,
+.modal-card {
+  width: min(520px, 92vw);
+  background: #fff;
+  border: 4px solid #000;
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+}
+
+.overlay-title {
+  font-weight: 900;
+  font-size: 28px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.overlay-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Win screen */
+.win-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 16px;
+  width: min(620px, 92vw);
+  padding: 16px;
+  text-align: center;
+}
+
+.win-photo-frame {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 6px solid #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  background: rgba(255, 255, 255, 0.92);
+  position: relative;
+}
+
+.win-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.win-photo-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  color: rgba(0, 0, 0, 0.35);
+}
+
+.win-text {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  padding: 10px 12px;
+  border: 0;
+}
+
+.win-line-1 {
+  font-weight: 900;
+  font-size: clamp(26px, 6vw, 44px);
+}
+
+.win-line-2 {
+  font-weight: 900;
+  font-size: clamp(26px, 6vw, 44px);
+}
+
+.secret-btn {
+  justify-self: center;
+  font-size: 16px;
+}
+
+/* Modal */
+.modal-card {
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.modal-title {
+  font-weight: 900;
+  font-size: 22px;
+  margin: 6px 0 10px;
+}
+
+.modal-textarea {
+  width: 100%;
+  min-height: 220px;
+  resize: vertical;
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+/* Confetti (CSS/JS-created shapes) */
+.confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 14px;
+  border-radius: 3px;
+  will-change: transform, top;
+}
