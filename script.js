@@ -19,7 +19,6 @@ const GAME_CONFIG = {
   speedIncreasePerPoint: 0.05,
   secretMessage: `Happy Birthday my dear Alisha!
 
-My dear Alisha,
 
 I am truly grateful that I met you, and I’m so glad you were born because the world would have missed an angel like you. You are kind, sweet, and compassionate, and you bring happiness to everyone whose life you become a part of.
 
