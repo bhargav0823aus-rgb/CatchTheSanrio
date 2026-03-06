@@ -121,8 +121,14 @@ body {
   color: #d00;
 }
 
-.hud-lives .life-off {
-  color: rgba(0, 0, 0, 0.15);
+.life-heart {
+  width: 32px;
+  height: auto;
+  margin-left: 6px;
+}
+
+.life-off {
+  opacity: 0.2;
 }
 
 .game-area {
@@ -316,3 +322,4 @@ body {
   border-radius: 3px;
   will-change: transform, top;
 }
+
