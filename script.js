@@ -41,7 +41,7 @@ Love you always,
       "assets/sanrio character 3.PNG"
     ],
     cloud: "assets/cloud.PNG",
-    basket: "assets/basket.PNG"
+    basket: "assets/basket.png"
   };
 
   const screens = {
