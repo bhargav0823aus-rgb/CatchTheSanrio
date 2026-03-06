@@ -36,12 +36,12 @@ Love you always,
 
   const ASSETS = {
     characters: [
-      "assets/sanrio character 1.png",
-      "assets/sanrio character 2.png",
-      "assets/sanrio character 3.png"
+      "assets/sanrio character 1.PNG",
+      "assets/sanrio character 2.PNG",
+      "assets/sanrio character 3.PNG"
     ],
-    cloud: "assets/cloud.png",
-    basket: "assets/basket.png"
+    cloud: "assets/cloud.PNG",
+    basket: "assets/basket.PNG"
   };
 
   const screens = {
