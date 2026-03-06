@@ -107,14 +107,23 @@ Love you always,
   }
 
   function renderLives() {
-    const total = GAME_CONFIG.startingLives;
-    let html = "";
-    for (let i = 0; i < total; i++) {
-      const off = i >= lives;
-      html += `<span class="${off ? "life-off" : ""}">♥</span>`;
-    }
-    livesEl.innerHTML = html;
+  const total = GAME_CONFIG.startingLives;
+  let html = "";
+
+  for (let i = 0; i < total; i++) {
+    const off = i >= lives;
+
+    html += `
+      <img 
+        src="assets/heart.png" 
+        class="life-heart ${off ? "life-off" : ""}" 
+        alt="heart"
+      />
+    `;
   }
+
+  livesEl.innerHTML = html;
+}
 
   function updateGirlfriendName() {
     girlfriendNameEl.textContent = `${GAME_CONFIG.girlfriendName.toUpperCase()} :)`;
